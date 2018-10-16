@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-claim-details',
@@ -13,6 +14,10 @@ export class ClaimDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onSubmit(form: NgForm): void {
+    console.log(form);
   }
 
 }
