@@ -7,8 +7,9 @@ import {AppRoutingModule} from './app-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, reducers} from './reducers';
-import {EffectsModule} from '@ngrx/effects';
 import {AppEffects} from './app.effects';
+import {EffectsModule} from '@ngrx/effects';
+import {MaterialModule} from './shared/material/material.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {AppEffects} from './app.effects';
     BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
+    MaterialModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([AppEffects])
   ],

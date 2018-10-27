@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ClaimService} from '../../shared/service/claim.service';
+import {ClaimService} from '../claim.service';
+import {Claim} from '../../shared/model/Claim';
 
 @Component({
   selector: 'app-list-claims',
@@ -8,20 +9,18 @@ import {ClaimService} from '../../shared/service/claim.service';
 })
 export class ListClaimsComponent implements OnInit {
 
-  private claims: Array<string>;
-  private claimService: ClaimService;
+  private claims: Array<Claim>;
 
-  constructor(claimService: ClaimService) {
-    this.claimService = claimService;
-    this.claims = claimService.getClaims();
+  constructor(private claimService: ClaimService) {
   }
 
 
   ngOnInit() {
+    this.claims = this.claimService.getClaims();
 
   }
 
-  public getClaims(): Array<string> {
+  public getClaims(): Array<Claim> {
     return this.claims;
   }
 }

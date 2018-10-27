@@ -1,2 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+  display: flex;
+  flex-direction: column;
+
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+.mat-list-item-content:active {
+  background-color: rgb(169, 169, 169);
+}

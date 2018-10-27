@@ -1,6 +1,63 @@
-<button mat-button routerLink="/claims/list">Claims</button>
-<button mat-button routerLink="/brokers">Brokers</button>
-<button mat-button routerLink="">Home</button>
+<div fxLayout="column" fxFlex>
 
-<router-outlet></router-outlet>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Silver Shield Capital</span>
 
+      <!-- Filler that pushes the menu button to the end of the toolbar -->
+      <span fxFlex></span>
+
+      <button mat-icon-button [matMenuTriggerFor]="themeMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlex>
+    <mat-sidenav mode="side" [opened]="true">
+
+      <mat-tab-group>
+        <mat-tab label="Users">
+          <mat-button-toggle-group fxLayout="column">
+            <!--<mat-list-item *ngFor="let user of users" (click)="selectedUser = user">-->
+              <!--<mat-icon matListAvatar svgIcon="avatars:{{user.avatar}}" class="avatar"></mat-icon>-->
+              <!--<span>{{user.name}}</span>-->
+            <!--</mat-list-item>-->
+            <mat-button-toggle [checked]="getActiveButton('claims')" routerLink="/claims/list">Claims</mat-button-toggle>
+            <mat-button-toggle [checked]="getActiveButton('brokers')" routerLink="/brokers">Brokers</mat-button-toggle>
+            <mat-button-toggle [checked]="getActiveButton('auth')" routerLink="/auth">Login</mat-button-toggle>
+            <mat-button-toggle routerLink="/">Home</mat-button-toggle>
+          </mat-button-toggle-group>
+        </mat-tab>
+        <mat-tab label="Settings">
+          <span>Settings</span>
+        </mat-tab>
+      </mat-tab-group>
+
+    </mat-sidenav>
+    <div class="content" fxLayout="row" fxFill fxLayoutGap="16px">
+
+      <mat-card fxFlex="80" fxFlexFill>
+        <!--<mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar"></mat-icon>-->
+        <!--<h2>{{selectedUser.name}}</h2>-->
+        <!--<p>{{selectedUser.details}}</p>-->
+        <router-outlet></router-outlet>
+      </mat-card>
+
+      <mat-card fxFlex fxLayout="column" fxLayoutGap="14px">
+        <mat-slide-toggle>Is Admin?</mat-slide-toggle>
+        <mat-slide-toggle>Is Cool?</mat-slide-toggle>
+      </mat-card>
+
+    </div>
+  </mat-sidenav-container>
+
+  <mat-menu #themeMenu x-position="before">
+    <button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>
+  </mat-menu>
+
+  <button mat-fab (click)="openAdminDialog()" class="fab-bottom-right">
+    <mat-icon>add</mat-icon>
+  </button>
+
+</div>

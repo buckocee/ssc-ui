@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {Claim} from '../../shared/model/Claim';
 
 @Component({
   selector: 'app-claim-details',
@@ -8,7 +9,7 @@ import {NgForm} from '@angular/forms';
 })
 export class ClaimDetailsComponent implements OnInit {
 
-  @Input() claim: string;
+  @Input() claim: Claim;
 
   constructor() {
   }

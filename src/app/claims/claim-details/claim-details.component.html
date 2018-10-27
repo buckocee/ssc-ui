@@ -1,10 +1,10 @@
 <section>
   <mat-card>
     <mat-card-title>
-      {{claim}}
+      {{claim.broker.businessName}}
     </mat-card-title>
     <mat-card-content>
-      <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <form #f="ngForm" fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="onSubmit(f)">
         <mat-form-field>
           <input type="email" matInput placeholder="Your email" ngModel name="email" email required>
         </mat-form-field>

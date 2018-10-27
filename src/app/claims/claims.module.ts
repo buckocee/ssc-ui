@@ -8,13 +8,19 @@ import {ClaimDetailsComponent} from './claim-details/claim-details.component';
 import {MaterialModule} from '../shared/material/material.module';
 import {FormsModule} from '@angular/forms';
 import {ClaimsRoutingModule} from './claims-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {ClaimService} from './claim.service';
+import {httpInterceptorProviders} from '../shared/http-interceptors';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
-    ClaimsRoutingModule
+    ClaimsRoutingModule,
+    HttpClientModule,
+    FlexLayoutModule
   ],
   declarations: [
     AddClaimComponent,
@@ -22,6 +28,9 @@ import {ClaimsRoutingModule} from './claims-routing.module';
     DeleteClaimComponent,
     ListClaimsComponent,
     ClaimDetailsComponent
+  ],
+  providers: [ClaimService,
+  httpInterceptorProviders
   ]
 })
 export class ClaimsModule {
