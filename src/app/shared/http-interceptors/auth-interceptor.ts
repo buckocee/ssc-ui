@@ -7,7 +7,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>,
             next: HttpHandler): Observable<HttpEvent<any>> {
-
+    console.log('Intercepted request to ' + req.urlWithParams);
+    console.log('Token: ' + localStorage.getItem('access_token'));
     const idToken = localStorage.getItem('access_token');
     console.log(idToken);
     if (idToken) {

@@ -6,7 +6,7 @@ import {DeleteClaimComponent} from './delete-claim/delete-claim.component';
 import {ListClaimsComponent} from './list-claims/list-claims.component';
 import {ClaimDetailsComponent} from './claim-details/claim-details.component';
 import {MaterialModule} from '../shared/material/material.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ClaimsRoutingModule} from './claims-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -16,11 +16,12 @@ import {httpInterceptorProviders} from '../shared/http-interceptors';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     ClaimsRoutingModule,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialModule,
   ],
   declarations: [
     AddClaimComponent,
@@ -29,8 +30,9 @@ import {httpInterceptorProviders} from '../shared/http-interceptors';
     ListClaimsComponent,
     ClaimDetailsComponent
   ],
-  providers: [ClaimService,
-  httpInterceptorProviders
+  providers: [
+    ClaimService,
+    httpInterceptorProviders
   ]
 })
 export class ClaimsModule {

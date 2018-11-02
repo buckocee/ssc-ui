@@ -4,7 +4,7 @@
 }
 
 mat-sidenav {
-  width: 320px;
+  width: 150px;
 }
 
 .content {
@@ -25,3 +25,10 @@ mat-icon.avatar::ng-deep {
   bottom: 16px;
 }
 
+mat-button-toggle-group {
+  height: 100%;
+}
+
+.username {
+  font-size: medium;
+}

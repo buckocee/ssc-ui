@@ -1,6 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Claim} from '../shared/model/Claim';
+import {Observable} from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -16,15 +17,9 @@ export class ClaimService {
     // this.fetchClaims().subscribe(claim => this.claims = claim);
   }
 
-  public getClaims(): Claim[] {
+  public getClaims(): Observable<Claim[]> {
     console.log('fetching claims');
-    const claims: Claim[] = [];
-    this.http.get<Claim[]>(`/api/v1/claims`)
-      .subscribe(data => claims.push(...data),
-        err => console.log(err),
-        () => console.log('Claims loaded successfully'));
-    console.log(claims);
-    return claims;
+    return this.http.get<Claim[]>(`/api/v1/claims`);
   }
 
   public getClaim(id: number): Claim {

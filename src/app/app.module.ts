@@ -10,10 +10,17 @@ import {metaReducers, reducers} from './reducers';
 import {AppEffects} from './app.effects';
 import {EffectsModule} from '@ngrx/effects';
 import {MaterialModule} from './shared/material/material.module';
+import {AuthService} from './auth/auth.service';
+import {HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import {httpInterceptorProviders} from './shared/http-interceptors';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -21,10 +28,11 @@ import {MaterialModule} from './shared/material/material.module';
     AppRoutingModule,
     FlexLayoutModule,
     MaterialModule,
+    HttpClientModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([AppEffects])
   ],
-  providers: [],
+  providers: [AuthService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {

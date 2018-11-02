@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth.service';
+import {User} from '../../shared/model/User';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,8 @@ import {AuthService} from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  private _user: User;
+
   constructor(private authService: AuthService) {
   }
 
@@ -15,7 +18,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    this.authService.login('johndoe3@localhost', 'Pa$sw0rd');
+    this.authService.logout();
+    this.authService.login('buckocee@gmail.com', 'Pa$sw0rd');
   }
 
 }

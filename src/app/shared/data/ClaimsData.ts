@@ -48,6 +48,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 22,
     'status': 'CREATED'
   },
@@ -100,6 +101,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 18,
     'status': 'CREATED'
   },
@@ -152,6 +154,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 20,
     'status': 'CREATED'
   },
@@ -204,6 +207,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 26,
     'status': 'CREATED'
   },
@@ -256,6 +260,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 16,
     'status': 'CREATED'
   },
@@ -308,6 +313,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 22,
     'status': 'CREATED'
   },
@@ -360,6 +366,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 27,
     'status': 'CREATED'
   },
@@ -412,6 +419,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 27,
     'status': 'CREATED'
   },
@@ -464,6 +472,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 18,
     'status': 'CREATED'
   },
@@ -516,6 +525,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 16,
     'status': 'CREATED'
   },
@@ -568,6 +578,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 21,
     'status': 'CREATED'
   },
@@ -620,6 +631,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 28,
     'status': 'CREATED'
   },
@@ -672,6 +684,7 @@ export const CLAIMS = [
     'loadType': null,
     'amount': null,
     'haulageDistance': null,
+    'submittedBy': 'John Doe',
     'userId': 22,
     'status': 'CREATED'
   }

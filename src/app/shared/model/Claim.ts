@@ -7,6 +7,7 @@ export interface Claim {
   updateDate: string;
   description: string;
   userId: number;
+  submittedBy: string;
   carrier: Carrier;
   broker: Broker;
   invoiceNumber: string;

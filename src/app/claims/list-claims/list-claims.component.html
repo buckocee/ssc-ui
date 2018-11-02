@@ -1,1 +1,46 @@
-<app-claim-details *ngFor="let clm of getClaims()" [claim]="clm"></app-claim-details>
+<!--<app-claim-details *ngFor="let clm of getClaims()" [claim]="clm"></app-claim-details>-->
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" fxFill>
+    <!-- Submitted On Column -->
+    <ng-container matColumnDef="submitDate">
+      <th mat-header-cell *matHeaderCellDef > Submitted On </th>
+      <td mat-cell *matCellDef="let element"> {{element.submitDate | date }} </td>
+    </ng-container>
+
+    <!-- Submitted By Column -->
+    <ng-container matColumnDef="submittedBy">
+      <th mat-header-cell *matHeaderCellDef> Submitted By </th>
+      <td mat-cell *matCellDef="let element"> {{element.submittedBy | titlecase }} </td>
+    </ng-container>
+
+    <!-- Broker Column -->
+    <ng-container matColumnDef="broker">
+      <th mat-header-cell *matHeaderCellDef> Broker </th>
+      <td mat-cell *matCellDef="let element"> {{element.broker.businessName | titlecase}} </td>
+    </ng-container>
+
+    <!-- Invoice Date Column -->
+    <ng-container matColumnDef="invoicePayableDate">
+      <th mat-header-cell *matHeaderCellDef> Invoice Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.invoicePayableDate ? element.invoicePayableDate : getTestDate() | date}} </td>
+    </ng-container>
+
+    <!-- Expected Payout* Column -->
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef> Expected Payout* </th>
+      <td mat-cell *matCellDef="let element"> {{element.amount | currency }} </td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"><mat-chip color="accent" selected>{{element.status}}</mat-chip></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
