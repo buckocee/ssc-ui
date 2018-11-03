@@ -15,12 +15,19 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import {httpInterceptorProviders} from './shared/http-interceptors';
+import {LoginComponent} from './login/login.component';
+import {LogoutComponent} from './logout/logout.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent,
+    LogoutComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -29,11 +36,14 @@ import {httpInterceptorProviders} from './shared/http-interceptors';
     FlexLayoutModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([AppEffects])
   ],
   providers: [AuthService, httpInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginComponent]
 })
 export class AppModule {
 

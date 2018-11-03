@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {mergeMap} from 'rxjs/operators';
 import {Profile} from '../shared/model/Profile';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +34,8 @@ export class AuthService {
     this._isLoggedIn = false;
     localStorage.removeItem('access_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('profile');
+    localStorage.removeItem('username');
     this.router.navigate(['/home']);
   }
 
@@ -53,7 +55,7 @@ export class AuthService {
 
   isAdmin(): boolean {
      const profile: Profile = JSON.parse(localStorage.getItem('profile'));
-  return profile.roles.filter(role => role.name === 'ROLE_ADMIN')
-    .length > 0;
+  return profile ? profile.roles.filter(role => role.name === 'ROLE_ADMIN')
+    .length > 0 : false;
 }
 }

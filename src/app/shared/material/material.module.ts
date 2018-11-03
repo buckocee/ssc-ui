@@ -17,34 +17,11 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTreeModule
+  MatTreeModule,
+  MatDialogModule
 } from '@angular/material';
 
 @NgModule({
-  imports: [
-    MatButtonModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatButtonModule,
-    MatListModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatTabsModule,
-    MatMenuModule,
-    MatSlideToggleModule,
-    MatButtonToggleModule,
-    MatPaginatorModule,
-    MatTableModule,
-    MatBadgeModule,
-    MatTreeModule,
-    MatProgressBarModule,
-    MatChipsModule,
-    MatSortModule,
-    MatStepperModule
-  ],
   exports: [
     MatButtonModule,
     MatCheckboxModule,
@@ -67,7 +44,8 @@ import {
     MatProgressBarModule,
     MatChipsModule,
     MatSortModule,
-    MatStepperModule
+    MatStepperModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule {

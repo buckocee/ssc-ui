@@ -16,8 +16,8 @@
       <button mat-icon-button [matMenuTriggerFor]="themeMenu">
         <mat-icon>more_vert</mat-icon>
       </button>
-      <button mat-flat-button (click)="loginUser()" *ngIf="!isAuthenticated()">Login</button>
-      <button mat-flat-button (click)="logoutUser()" *ngIf="isAuthenticated()">Logout</button>
+      <button mat-flat-button (click)="login()" *ngIf="!isAuthenticated()">Login</button>
+      <button mat-flat-button (click)="logout()" *ngIf="isAuthenticated()">Logout</button>
     </mat-toolbar-row>
   </mat-toolbar>
 
