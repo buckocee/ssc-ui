@@ -1,21 +1,15 @@
-<!--<p>-->
-  <!--<button (click)="loginUser()">LogIn</button>-->
-<!--</p>-->
-
 <h2 mat-dialog-title>Login</h2>
 
 <mat-dialog-content>
-
-  <p> Place content here </p>
 </mat-dialog-content>
-  <form [formGroup]="loginForm" fxLayout="column">
-      <mat-form-field>
-        <input matInput placeholder="Username" formControlName="username" required>
-      </mat-form-field>
-    <mat-form-field>
-      <input matInput type="password" formControlName="password" required>
-    </mat-form-field>
-  </form>
+<form [formGroup]="loginForm" fxLayout="column">
+  <mat-form-field>
+    <input matInput placeholder="Email" type="email" formControlName="username" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Password" type="password" formControlName="password" required>
+  </mat-form-field>
+</form>
 <mat-dialog-actions>
   <span fxFlex></span>
   <button mat-flat-button color="primary" (click)="loginUser()">Submit</button>

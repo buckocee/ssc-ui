@@ -28,7 +28,7 @@
             <mat-icon>home</mat-icon>
             Home
           </mat-button-toggle>
-          <mat-button-toggle [checked]="getActiveButton('claims')" routerLink="/claims/list" *ngIf="isAuthenticated()">
+          <mat-button-toggle [checked]="getActiveButton('claims')" routerLink="/claims" *ngIf="isAuthenticated()">
             <mat-icon>insert_drive_file</mat-icon>
             Claims
           </mat-button-toggle>

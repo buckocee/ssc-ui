@@ -1,3 +1,125 @@
-<p>
-  edit-claim works!
-</p>
+<form [formGroup]="claimForm" *ngIf="claim">
+  <!--<mat-accordion>-->
+  <div fxLayout="column">
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="Claim #" [(ngModel)]="claim.claimId" name="claimId" formControlName="claimId">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="Submitted on" [ngModel]="claim.submitDate | date" name="submitDate"
+                   formControlName="submitDate">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="status" [(ngModel)]="claim.status" name="status" formControlName="status">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="Last Updated on" [(ngModel)]="claim.updateDate" name="updateDate"
+                   formControlName="updateDate">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="Expected payout*" [ngModel]="claim.amount | currency" name="amount"
+                   formControlName="amount">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="Memo" [(ngModel)]="claim.description" name="description"
+                   formControlName="description">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Broker info
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div fxLayout="column" formGroupName="broker">
+      <table>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Broker" [(ngModel)]="claim.broker.businessName" name="businessName"
+                     formControlName="businessName">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="MC #" [(ngModel)]="claim.broker.mcNumber" name="mcNumber"
+                     formControlName="mcNumber">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="DOT #" [(ngModel)]="claim.broker.dotNumber" name="dotNumber"
+                     formControlName="dotNumber">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Phone" [(ngModel)]="claim.broker.phoneNumber" name="phoneNumber"
+                     formControlName="phoneNumber">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Load info
+      </mat-panel-title>
+      <mat-panel-description>
+        Invoice details
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Your info
+      </mat-panel-title>
+      <mat-panel-description>
+        Carrier details
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div fxLayout="column" formGroupName="carrier">
+      <mat-form-field>
+        <input matInput placeholder="Carrier" [(ngModel)]="claim.carrier.businessName" name="businessName"
+               formControlName="businessName">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="MC #" [(ngModel)]="claim.carrier.mcNumber" name="mcNumber"
+               formControlName="mcNumber">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="DOT #" [(ngModel)]="claim.carrier.dotNumber" name="dotNumber"
+               formControlName="dotNumber">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Phone" [(ngModel)]="claim.carrier.phoneNumber" name="phoneNumber"
+               formControlName="phoneNumber">
+      </mat-form-field>
+    </div>
+  </mat-expansion-panel>
+  <!--</mat-accordion>-->
+  <button mat-raised-button (click)="goBack()">Back</button>
+</form>
+
+
+<!--https://linuxhint.com/install-apache-kafka-ubuntu/-->

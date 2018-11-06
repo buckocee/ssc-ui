@@ -30,8 +30,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   loginUser() {
     this.authService.logout();
-    console.log(this.loginForm);
-    this._loginSubscription = this.authService.login('buckocee@gmail.com', 'Pa$sw0rd')
+    console.log(this.loginForm.get('username').value);
+    this._loginSubscription = this.authService.login(this.loginForm.get('username').value,
+      'Pa$sw0rd')
       .subscribe(data => {
         this.setSession(data);
         this.setUserProfile();

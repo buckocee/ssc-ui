@@ -7,11 +7,11 @@ import {DeleteClaimComponent} from './delete-claim/delete-claim.component';
 
 const routes: Routes = [
   {
-    path: 'list',
+    path: '',
     component: ListClaimsComponent
   },
   {
-    path: 'edit',
+    path: 'edit/:id',
     component: EditClaimComponent
   },
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
     component: AddClaimComponent
   },
   {
-    path: 'delete',
+    path: 'delete/:id',
     component: DeleteClaimComponent
   }
 ];

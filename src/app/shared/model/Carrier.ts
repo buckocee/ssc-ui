@@ -7,6 +7,7 @@ export interface Carrier {
   businessName: string;
   mailingAddress: Address;
   physicalAddress: Address;
+  email: string;
   phoneNumber: string;
   faxNumber: string;
   status: string;

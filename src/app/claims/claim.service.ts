@@ -22,13 +22,8 @@ export class ClaimService {
     return this.http.get<Claim[]>(`/api/v1/claims`);
   }
 
-  public getClaim(id: number): Claim {
-    let claim: Claim = null;
-    this.http.get<Claim>('/api/v1/claims/' + id)
-      .subscribe(data => claim = data,
-        err => console.log(err),
-        () => console.log('Claim ' + id + ' retrieved successfully'));
-    return claim;
+  public getClaim(id: number): Observable<Claim> {
+    return this.http.get<Claim>('/api/v1/claims/' + id);
   }
 
   public createClaim(claim: Claim): string {

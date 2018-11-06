@@ -7,7 +7,7 @@ export interface Broker {
   mcNumber: string;
   phoneNumber: string;
   faxNumber: string;
-  state: String;
-  city: String;
-  status: String;
+  state: string;
+  city: string;
+  status: string;
 }

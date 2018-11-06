@@ -21,7 +21,7 @@ import {httpInterceptorProviders} from '../shared/http-interceptors';
     ClaimsRoutingModule,
     HttpClientModule,
     FlexLayoutModule,
-    MaterialModule,
+    MaterialModule
   ],
   declarations: [
     AddClaimComponent,
