@@ -1,3 +1,92 @@
-<p>
-  {{profile}}
-</p>
+<mat-card>
+  <form [formGroup]="profileForm" *ngIf="profile">
+    <div fxLayout="column">
+      <div fxLayout="row">
+        <mat-form-field>
+          <input matInput placeholder="First name" [(ngModel)]="profile.firstName" name="firstName" formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Middle initial" [(ngModel)]="profile.middleInitial" name="middleInitial" formControlName="middleInitial">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last name" [(ngModel)]="profile.lastName" name="lastName" formControlName="lastName">
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <input matInput placeholder="Email" [(ngModel)]="profile.email" name="email" formControlName="email">
+      </mat-form-field>
+    </div>
+    <h4>Carrier</h4>
+    <div fxLayout="column" formGroupName="carrier">
+      <mat-form-field>
+        <input matInput placeholder="Carrier" [(ngModel)]="profile.carrier.businessName" name="businessName"
+               formControlName="businessName">
+      </mat-form-field>
+      <table>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="MC #" [(ngModel)]="profile.carrier.mcNumber" name="mcNumber"
+                     formControlName="mcNumber">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="DOT #" [(ngModel)]="profile.carrier.dotNumber" name="dotNumber"
+                     formControlName="dotNumber">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Phone" [(ngModel)]="profile.carrier.phoneNumber" name="phoneNumber"
+                     formControlName="phoneNumber">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <h4>Address</h4>
+      <div fxLayout="column" formGroupName="physicalAddress">
+        <mat-form-field>
+          <input matInput placeholder="Street address" [(ngModel)]="profile.carrier.physicalAddress.streetAddress" name="streetAddress"
+                 formControlName="streetAddress">
+        </mat-form-field>
+        <table>
+          <tr>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="City" [(ngModel)]="profile.carrier.physicalAddress.city" name="city"
+                       formControlName="city">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="State" [(ngModel)]="profile.carrier.physicalAddress.state" name="state"
+                       formControlName="state">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="Zip" [(ngModel)]="profile.carrier.physicalAddress.zipCode" name="zipCode"
+                       formControlName="zipCode">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div fxLayoutAlign="end">
+      <button mat-raised-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Back
+      </button>
+      <button mat-flat-button *ngIf="!isEditable" routerLink="/profile/edit">
+        <mat-icon>edit</mat-icon>
+        Edit
+      </button>
+      <button mat-flat-button *ngIf="isEditable" routerLink="/profile">
+        <mat-icon>check</mat-icon>
+        Save
+      </button>
+    </div>
+  </form>
+</mat-card>

@@ -19,6 +19,8 @@ import {LoginComponent} from './login/login.component';
 import {LogoutComponent} from './logout/logout.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
+import { ConfirmRegistrationComponent } from './confirm-registration/confirm-registration.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ProfileComponent,
     LoginComponent,
     LogoutComponent,
-    SignUpComponent
+    SignUpComponent,
+    RegistrationComponent,
+    ConfirmRegistrationComponent
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,13 @@ import {HomeComponent} from './home/home.component';
 import {AuthGuard} from './auth/auth.guard';
 import {ProfileComponent} from './profile/profile.component';
 import {AdminGuard} from './auth/admin.guard';
+import {RegistrationComponent} from './registration/registration.component';
 
 const routes: Routes = [
+  {
+    path: 'register',
+    component: RegistrationComponent
+  },
   {
     path: 'auth',
     loadChildren: 'src/app/auth/auth.module#AuthModule',
@@ -27,6 +32,11 @@ const routes: Routes = [
   },
   {
     path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'profile/edit',
     component: ProfileComponent,
     canActivate: [AuthGuard]
   },

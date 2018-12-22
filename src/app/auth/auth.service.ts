@@ -58,4 +58,8 @@ export class AuthService {
   return profile ? profile.roles.filter(role => role.name === 'ROLE_ADMIN')
     .length > 0 : false;
 }
+
+  confirmRegistration(registrationToken: string) {
+    return this.http.get('/api/v1/users/confirm-registration/' + registrationToken);
+  }
 }

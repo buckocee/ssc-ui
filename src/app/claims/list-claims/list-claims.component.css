@@ -9,3 +9,7 @@ td {
 .menuitem {
   font-size: smaller;
 }
+
+table {
+  width: 100%;
+}

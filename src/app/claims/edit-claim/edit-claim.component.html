@@ -49,14 +49,12 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div fxLayout="column" formGroupName="broker">
-      <table>
-        <tr>
-          <td>
             <mat-form-field>
               <input matInput placeholder="Broker" [(ngModel)]="claim.broker.businessName" name="businessName"
                      formControlName="businessName">
             </mat-form-field>
-          </td>
+      <table>
+        <tr>
           <td>
             <mat-form-field>
               <input matInput placeholder="MC #" [(ngModel)]="claim.broker.mcNumber" name="mcNumber"
@@ -95,7 +93,7 @@
         Your info
       </mat-panel-title>
       <mat-panel-description>
-        Carrier details
+        Carrier details {{isEditable ? '(Edit in profile)' : ''}}
       </mat-panel-description>
     </mat-expansion-panel-header>
     <div fxLayout="column" formGroupName="carrier">
@@ -103,22 +101,46 @@
         <input matInput placeholder="Carrier" [(ngModel)]="claim.carrier.businessName" name="businessName"
                formControlName="businessName">
       </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="MC #" [(ngModel)]="claim.carrier.mcNumber" name="mcNumber"
-               formControlName="mcNumber">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="DOT #" [(ngModel)]="claim.carrier.dotNumber" name="dotNumber"
-               formControlName="dotNumber">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Phone" [(ngModel)]="claim.carrier.phoneNumber" name="phoneNumber"
-               formControlName="phoneNumber">
-      </mat-form-field>
+      <table>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="MC #" [(ngModel)]="claim.carrier.mcNumber" name="mcNumber"
+                     formControlName="mcNumber">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="DOT #" [(ngModel)]="claim.carrier.dotNumber" name="dotNumber"
+                     formControlName="dotNumber">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Phone" [(ngModel)]="claim.carrier.phoneNumber" name="phoneNumber"
+                     formControlName="phoneNumber">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
     </div>
   </mat-expansion-panel>
+  <mat-divider></mat-divider>
   <!--</mat-accordion>-->
-  <button mat-raised-button (click)="goBack()">Back</button>
+  <div fxLayoutAlign="end">
+    <button mat-raised-button (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+      Back
+    </button>
+    <button mat-flat-button *ngIf="!isEditable" routerLink="/claims/edit/{{claim.claimId}}">
+      <mat-icon>edit</mat-icon>
+      Edit
+    </button>
+    <button mat-flat-button *ngIf="isEditable" routerLink="/claims">
+      <mat-icon>check</mat-icon>
+      Save
+    </button>
+  </div>
 </form>
 
 

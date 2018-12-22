@@ -13,9 +13,7 @@
       <button mat-icon-button *ngIf="isAuthenticated()">
         <mat-icon matBadge="15" matBadgeColor="accent" matBadgeSize="medium">notifications</mat-icon>
       </button>
-      <button mat-icon-button [matMenuTriggerFor]="themeMenu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
+      <mat-icon>more_vert</mat-icon>
       <button mat-flat-button (click)="login()" *ngIf="!isAuthenticated()">Login</button>
       <button mat-flat-button (click)="logout()" *ngIf="isAuthenticated()">Logout</button>
     </mat-toolbar-row>
@@ -23,20 +21,21 @@
 
   <mat-sidenav-container fxFlex>
     <mat-sidenav mode="side" [opened]="true" *ngIf="isAuthenticated()">
-        <mat-button-toggle-group fxLayout="column" class="content">
-          <mat-button-toggle [checked]="getActiveButton('brokers')" routerLink="/">
-            <mat-icon>home</mat-icon>
-            Home
-          </mat-button-toggle>
-          <mat-button-toggle [checked]="getActiveButton('claims')" routerLink="/claims" *ngIf="isAuthenticated()">
-            <mat-icon>insert_drive_file</mat-icon>
-            Claims
-          </mat-button-toggle>
-          <mat-button-toggle [checked]="getActiveButton('brokers')" routerLink="/brokers" *ngIf="isAuthenticated() && isAdmin()">
-            <mat-icon>group</mat-icon>
-            Brokers
-          </mat-button-toggle>
-        </mat-button-toggle-group>
+      <mat-button-toggle-group fxLayout="column" class="content">
+        <mat-button-toggle [checked]="getActiveButton('brokers')" routerLink="/">
+          <mat-icon>home</mat-icon>
+          Home
+        </mat-button-toggle>
+        <mat-button-toggle [checked]="getActiveButton('claims')" routerLink="/claims" *ngIf="isAuthenticated()">
+          <mat-icon>insert_drive_file</mat-icon>
+          Claims
+        </mat-button-toggle>
+        <mat-button-toggle [checked]="getActiveButton('brokers')" routerLink="/brokers"
+                           *ngIf="isAuthenticated() && isAdmin()">
+          <mat-icon>group</mat-icon>
+          Brokers
+        </mat-button-toggle>
+      </mat-button-toggle-group>
     </mat-sidenav>
     <div class="content" fxLayout="row" fxFill fxLayoutGap="16px">
 

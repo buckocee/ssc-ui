@@ -11,6 +11,10 @@ const routes: Routes = [
     component: ListClaimsComponent
   },
   {
+    path: ':id',
+    component: EditClaimComponent
+  },
+  {
     path: 'edit/:id',
     component: EditClaimComponent
   },
