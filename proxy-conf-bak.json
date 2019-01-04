@@ -1,0 +1,8 @@
+ {
+   "/api": {
+   "target": "https://gentle-headland-48845.herokuapp.com",
+     "secure": true,
+     "changeOrigin": true,
+     "logLevel": "debug"
+    }
+ }

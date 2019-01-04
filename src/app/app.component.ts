@@ -20,7 +20,7 @@ export class MenuItem {
 })
 export class AppComponent implements OnInit {
 
-  title = 'MaterialTest';
+  title = 'SSC UI';
   private activeButton: boolean;
   username: string = localStorage.getItem('username');
 
