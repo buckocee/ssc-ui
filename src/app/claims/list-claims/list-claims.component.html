@@ -56,7 +56,7 @@
 
 <mat-menu #claimMenu>
   <ng-template matMenuContent let-claimId="claimId">
-    <button mat-menu-item class="menuitem" routerLink="/claims/{{claimId}}">View</button>
-    <button mat-menu-item class="menuitem" routerLink="/claims/edit/{{claimId}}">Edit</button>
+    <button mat-menu-item class="menuitem" [routerLink]="['/claims', claimId]">View</button>
+    <button mat-menu-item class="menuitem" [routerLink]="['/claims/edit/', claimId]">Edit</button>
   </ng-template>
 </mat-menu>

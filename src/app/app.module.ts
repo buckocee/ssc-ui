@@ -21,6 +21,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
 import { ConfirmRegistrationComponent } from './confirm-registration/confirm-registration.component';
+import { SearchComponent } from './search/search.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { ConfirmRegistrationComponent } from './confirm-registration/confirm-reg
     LogoutComponent,
     SignUpComponent,
     RegistrationComponent,
-    ConfirmRegistrationComponent
+    ConfirmRegistrationComponent,
+    SearchComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

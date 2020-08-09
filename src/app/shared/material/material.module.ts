@@ -27,7 +27,6 @@ import {
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
-    MatButtonModule,
     MatListModule,
     MatFormFieldModule,
     MatInputModule,

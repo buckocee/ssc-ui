@@ -15,6 +15,7 @@ export class EditClaimComponent implements OnInit {
   claim: Claim;
   claimForm: FormGroup;
   isEditable: boolean;
+  private claimId: number;
 
   constructor(private claimService: ClaimService, private route: ActivatedRoute, private location: Location,
               private _fb: FormBuilder) {
@@ -54,11 +55,14 @@ export class EditClaimComponent implements OnInit {
   }
 
   getClaim(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.claimService.getClaim(id)
-      .subscribe(claim => {
-        this.claim = claim;
-        this.setFormstate();
+    this.route.paramMap.subscribe(
+      params => {
+        this.claimId = +params.get('id');
+        this.claimService.getClaim(this.claimId)
+          .subscribe(claim => {
+            this.claim = claim;
+            this.setFormstate();
+          });
       });
   }
 

@@ -1,23 +1,6 @@
 <div fxLayout="column" fxFlex>
 
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Silver Shield Capital</span>
-
-      <!-- Filler that pushes the menu button to the end of the toolbar -->
-      <span fxFlex></span>
-      <span class="username" *ngIf="isAuthenticated()">{{username}}</span>
-      <button mat-icon-button routerLink="/profile" *ngIf="isAuthenticated()">
-        <mat-icon>person</mat-icon>
-      </button>
-      <button mat-icon-button *ngIf="isAuthenticated()">
-        <mat-icon matBadge="15" matBadgeColor="accent" matBadgeSize="medium">notifications</mat-icon>
-      </button>
-      <mat-icon>more_vert</mat-icon>
-      <button mat-flat-button (click)="login()" *ngIf="!isAuthenticated()">Login</button>
-      <button mat-flat-button (click)="logout()" *ngIf="isAuthenticated()">Logout</button>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <app-navbar></app-navbar>
 
   <mat-sidenav-container fxFlex>
     <mat-sidenav mode="side" [opened]="true" *ngIf="isAuthenticated()">
