@@ -12,7 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   imports: [
     CommonModule,
-    BrokersRoutingModule,
+    BrokersRoutingModule, // Routing module
     HttpClientModule
   ],
   declarations: [

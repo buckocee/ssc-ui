@@ -1,146 +1,106 @@
-<form [formGroup]="claimForm" *ngIf="claim">
-  <!--<mat-accordion>-->
-  <div fxLayout="column">
-    <table>
-      <tr>
-        <td>
+<form [formGroup]="claimForm" *ngIf="claim" (ngSubmit)="updateForm()">
+  <mat-card >
+    <mat-card-title>
+      <span>Claim #{{claim.claimId}} Details</span>
+    </mat-card-title>
+    <mat-card-content>
+      <mat-card fxLayout="column">
+        <mat-form-field>
+          <input matInput placeholder="Claim #" formControlName="claimId">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Submitted on" formControlName="submitDate" value="{{claim.submitDate | date: 'medium'}}">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="status" formControlName="status">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last Updated on" formControlName="updateDate"  value="{{claim.updateDate | date: 'medium'}}">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Expected payout*" formControlName="amount">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Memo" formControlName="description">
+          <mat-error *ngIf="claimForm.hasError('required', ['claimId'])">
+            {{claimForm.getError('required', ['claimId'])?.description}}
+          </mat-error>
+        </mat-form-field>
+      </mat-card>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Broker info
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div fxLayout="column" formGroupName="broker">
           <mat-form-field>
-            <input matInput placeholder="Claim #" [(ngModel)]="claim.claimId" name="claimId" formControlName="claimId">
+            <input matInput placeholder="Broker" formControlName="businessName">
           </mat-form-field>
-        </td>
-        <td>
           <mat-form-field>
-            <input matInput placeholder="Submitted on" [ngModel]="claim.submitDate | date" name="submitDate"
-                   formControlName="submitDate">
+            <input matInput placeholder="MC #" formControlName="mcNumber">
           </mat-form-field>
-        </td>
-        <td>
           <mat-form-field>
-            <input matInput placeholder="status" [(ngModel)]="claim.status" name="status" formControlName="status">
+            <input matInput placeholder="DOT #" formControlName="dotNumber">
           </mat-form-field>
-        </td>
-      </tr>
-      <tr>
-        <td>
           <mat-form-field>
-            <input matInput placeholder="Last Updated on" [(ngModel)]="claim.updateDate" name="updateDate"
-                   formControlName="updateDate">
+            <input matInput placeholder="Phone" formControlName="phoneNumber">
           </mat-form-field>
-        </td>
-        <td>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Load info
+          </mat-panel-title>
+          <mat-panel-description>
+            Invoice details
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Your info
+          </mat-panel-title>
+          <mat-panel-description>
+            Carrier details {{isEditable ? '(Edit in profile)' : ''}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div fxLayout="column" formGroupName="carrier">
           <mat-form-field>
-            <input matInput placeholder="Expected payout*" [ngModel]="claim.amount | currency" name="amount"
-                   formControlName="amount">
+            <input matInput placeholder="Carrier" formControlName="businessName">
+            <mat-error *ngIf="claimForm.hasError('required', ['claimId'])">
+              {{claimForm.getError('required', ['carrier', 'businessName'])?.description}}
+            </mat-error>
           </mat-form-field>
-        </td>
-        <td>
           <mat-form-field>
-            <input matInput placeholder="Memo" [(ngModel)]="claim.description" name="description"
-                   formControlName="description">
+            <input matInput placeholder="MC #" formControlName="mcNumber">
           </mat-form-field>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Broker info
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div fxLayout="column" formGroupName="broker">
-            <mat-form-field>
-              <input matInput placeholder="Broker" [(ngModel)]="claim.broker.businessName" name="businessName"
-                     formControlName="businessName">
-            </mat-form-field>
-      <table>
-        <tr>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="MC #" [(ngModel)]="claim.broker.mcNumber" name="mcNumber"
-                     formControlName="mcNumber">
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="DOT #" [(ngModel)]="claim.broker.dotNumber" name="dotNumber"
-                     formControlName="dotNumber">
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="Phone" [(ngModel)]="claim.broker.phoneNumber" name="phoneNumber"
-                     formControlName="phoneNumber">
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Load info
-      </mat-panel-title>
-      <mat-panel-description>
-        Invoice details
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Your info
-      </mat-panel-title>
-      <mat-panel-description>
-        Carrier details {{isEditable ? '(Edit in profile)' : ''}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div fxLayout="column" formGroupName="carrier">
-      <mat-form-field>
-        <input matInput placeholder="Carrier" [(ngModel)]="claim.carrier.businessName" name="businessName"
-               formControlName="businessName">
-      </mat-form-field>
-      <table>
-        <tr>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="MC #" [(ngModel)]="claim.carrier.mcNumber" name="mcNumber"
-                     formControlName="mcNumber">
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="DOT #" [(ngModel)]="claim.carrier.dotNumber" name="dotNumber"
-                     formControlName="dotNumber">
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="Phone" [(ngModel)]="claim.carrier.phoneNumber" name="phoneNumber"
-                     formControlName="phoneNumber">
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </mat-expansion-panel>
-  <mat-divider></mat-divider>
-  <!--</mat-accordion>-->
-  <div fxLayoutAlign="end">
-    <button mat-raised-button (click)="goBack()">
-    <mat-icon>arrow_back</mat-icon>
-      Back
-    </button>
-    <button mat-flat-button *ngIf="!isEditable" routerLink="/claims/edit/{{claim.claimId}}">
-      <mat-icon>edit</mat-icon>
-      Edit
-    </button>
-    <button mat-flat-button *ngIf="isEditable" routerLink="/claims">
-      <mat-icon>check</mat-icon>
-      Save
-    </button>
-  </div>
+          <mat-form-field>
+            <input matInput placeholder="DOT #" formControlName="dotNumber">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Phone" formControlName="phoneNumber">
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+      <mat-card-actions fxLayoutAlign="end">
+        <button mat-raised-button (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          Back
+        </button>
+        <button mat-flat-button *ngIf="!isEditable" routerLink="/claims/edit/{{claim.claimId}}">
+          <mat-icon>edit</mat-icon>
+          Edit
+        </button>
+        <button mat-flat-button type="submit" *ngIf="isEditable" routerLink="/claims">
+          <mat-icon>check</mat-icon>
+          Save
+        </button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
 </form>
 
 

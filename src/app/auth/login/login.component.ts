@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AuthService} from '../auth/auth.service';
+import {AuthService} from '../auth.service';
 import {MatDialogRef} from '@angular/material';
 import * as moment from 'moment';
 import {Subscription} from 'rxjs';

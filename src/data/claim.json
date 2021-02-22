@@ -1,0 +1,53 @@
+{
+  "claimId": 9,
+  "submitDate": "2018-05-16T21:39:10.697-07:00",
+  "updateDate": "2018-05-16T21:39:10.697-07:00",
+  "invoicePayableDate": null,
+  "invoiceNumber": "INVC43354324143",
+  "description": "This is the invoice for long-distance haulage",
+  "carrier": {
+    "id": 1011,
+    "mcNumber": null,
+    "dotNumber": "1963660",
+    "status": "ACTIVE",
+    "businessName": "GREENLINE PAPER COMPANY",
+    "phoneNumber": null,
+    "faxNumber": null,
+    "physicalAddress": {
+      "id": 2000,
+      "streetAddress": "631 S PINE STREET",
+      "unitSuiteFloor": null,
+      "city": "YORK",
+      "state": "PA",
+      "country": "US",
+      "zipCode": "17403"
+    },
+    "mailingAddress": {
+      "id": 1999,
+      "streetAddress": "631 S PINE STREET",
+      "unitSuiteFloor": null,
+      "city": "YORK",
+      "state": "PA",
+      "country": "US",
+      "zipCode": "17403"
+    }
+  },
+  "broker": {
+    "id": 511,
+    "mcNumber": "745867",
+    "dotNumber": "2248786",
+    "businessName": "MOR-BRIGHT FREIGHT BROKERAGE LLC",
+    "status": "ACTIVE",
+    "phoneNumber": null,
+    "faxNumber": null,
+    "state": "ID",
+    "city": "BLACKFOOT"
+  },
+  "loadDate": null,
+  "loadType": null,
+  "amount": null,
+  "haulageDistance": null,
+  "submittedBy": "John Doe",
+  "userId": 22,
+  "status": "CREATED"
+}

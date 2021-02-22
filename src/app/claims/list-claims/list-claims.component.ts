@@ -32,7 +32,6 @@ export class ListClaimsComponent implements OnInit {
         },
         err => console.log(err),
         () => console.log('Claims loaded successfully'));
-
   }
 
   getTestDate() {

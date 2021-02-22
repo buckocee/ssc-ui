@@ -1,7 +1,7 @@
 <div fxLayout="column" fxFlex>
 
   <app-navbar></app-navbar>
-
+  <!-- to make sidenav collapsible, add service with subject and custom event in app-navbar -->
   <mat-sidenav-container fxFlex>
     <mat-sidenav mode="side" [opened]="true" *ngIf="isAuthenticated()">
       <mat-button-toggle-group fxLayout="column" class="content">

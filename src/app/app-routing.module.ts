@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AuthGuard} from './auth/auth.guard';
 import {ProfileComponent} from './profile/profile.component';
 import {AdminGuard} from './auth/admin.guard';
 import {RegistrationComponent} from './registration/registration.component';
 
+// TODO: Research customizing angular.json for lazy-loading modules.
 const routes: Routes = [
   {
     path: 'register',
@@ -19,7 +20,7 @@ const routes: Routes = [
   {
     path: 'claims',
     loadChildren: 'src/app/claims/claims.module#ClaimsModule',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'brokers',
@@ -32,13 +33,18 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'profile/edit',
-    component: ProfileComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: ProfileComponent
+      },
+      {
+        path: 'edit',
+        component: ProfileComponent
+      }
+    ]
   },
   {
     path: '',
@@ -48,7 +54,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule],
   providers: []
 })

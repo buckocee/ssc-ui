@@ -21,8 +21,12 @@ import {
   MatDialogModule,
   MatExpansionModule, MatDividerModule
 } from '@angular/material';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
+  imports: [
+    CommonModule
+  ],
   exports: [
     MatButtonModule,
     MatCheckboxModule,

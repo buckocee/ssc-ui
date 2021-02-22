@@ -5,7 +5,8 @@ import {AuthService} from './auth/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  // providers: [{provide: ProviderName, useClass: ProviderInstance}] => can be used to specify component-specific services/providers
 })
 export class AppComponent implements OnInit {
 
