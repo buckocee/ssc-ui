@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # MaterialTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
@@ -47,4 +46,3 @@ If you want to learn more about creating good readme files then refer the follow
 - [ASP.NET Core](https://github.com/aspnet/Home)
 - [Visual Studio Code](https://github.com/Microsoft/vscode)
 - [Chakra Core](https://github.com/Microsoft/ChakraCore)
->>>>>>> origin/master
