@@ -4,6 +4,8 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {LoginComponent} from '../../auth/login/login.component';
 import {Router} from '@angular/router';
 import {SignUpComponent} from '../../auth/sign-up/sign-up.component';
+import {RegisteredUser} from '../model/RegisteredUser';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +18,8 @@ export class NavbarComponent implements OnInit {
   private activeButton: boolean;
   username: string = localStorage.getItem('username');
 
-  constructor(private authService: AuthService, private readonly router: Router, private dialog: MatDialog) { }
+  constructor(private authService: AuthService, private readonly router: Router, private dialog: MatDialog,
+              private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -49,9 +52,6 @@ export class NavbarComponent implements OnInit {
   register() {
     const dialogConfig = new MatDialogConfig();
     const dialogRef = this.dialog.open(SignUpComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(value => {
-      this.username = value;
-      localStorage.setItem('username', value);
-    });
+    // dialogRef.afterClosed().subscribe();
   }
 }

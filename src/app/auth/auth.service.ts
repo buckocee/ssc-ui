@@ -6,6 +6,7 @@ import {mergeMap} from 'rxjs/operators';
 import {Profile} from '../shared/model/Profile';
 import {Observable, Subscription} from 'rxjs';
 import {UserRegistration} from '../shared/model/UserRegistration';
+import {RegisteredUser} from '../shared/model/RegisteredUser';
 
 @Injectable({
   providedIn: 'root'
@@ -64,12 +65,10 @@ export class AuthService {
     return this.http.get('/api/v1/users/confirm-registration/' + registrationToken);
   }
 
-  registerUser(userRegistration: UserRegistration): Observable<HttpEvent<any>> {
+  registerUser(userRegistration: UserRegistration): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + btoa('html5:password')
     });
-    const request: HttpRequest<UserRegistration> = new HttpRequest<UserRegistration>('POST',
-      '/api/v1/users/register/', userRegistration, {headers: headers});
-    return this.http.request(request);
+    return this.http.post('/api/v1/users/register', userRegistration, {headers: headers});
   }
 }

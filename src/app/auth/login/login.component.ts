@@ -30,13 +30,13 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   loginUser() {
     this.authService.logout();
-    console.log(this.loginForm.get('username').value);
     this._loginSubscription = this.authService.login(this.loginForm.get('username').value,
-      'Pa$sw0rd')
+      this.loginForm.get('password').value)
       .subscribe(data => {
         this.setSession(data);
         this.setUserProfile();
       });
+    this.dialogRef.close(this.username);
   }
 
   private setSession(authResult) {
@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         console.log('User: ' + user['firstName']);
         this.username = user['firstName'];
         localStorage.setItem('profile', JSON.stringify(user));
-        this.dialogRef.close(this.username);
       });
   }
 

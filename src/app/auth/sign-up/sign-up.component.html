@@ -1,3 +1,26 @@
-<p>
-  sign-up works!
-</p>
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<h2 mat-dialog-title>Login</h2>
+<mat-dialog-content>
+</mat-dialog-content>
+<form [formGroup]="signUpForm" fxLayout="column">
+  <mat-form-field>
+    <input matInput placeholder="First Name" type="text" formControlName="firstName" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Last Name" type="text" formControlName="lastName" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Email" type="email" formControlName="email" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Password" type="password" formControlName="password" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Confirm Password" type="password" formControlName="matchingPassword" required>
+  </mat-form-field>
+</form>
+<mat-dialog-actions>
+  <span fxFlex></span>
+  <button mat-flat-button color="primary" (click)="signUp()">Submit</button>
+  <button mat-raised-button (click)="close()">Close</button>
+</mat-dialog-actions>

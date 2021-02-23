@@ -24,6 +24,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatStepperModule,
     MatDialogModule,
     MatExpansionModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -77,7 +79,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatStepperModule,
     MatDialogModule,
     MatExpansionModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule {
