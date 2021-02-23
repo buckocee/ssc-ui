@@ -1,8 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ClaimService} from '../claim.service';
 import {Claim} from '../../shared/model/Claim';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
 import * as moment from 'moment';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-list-claims',

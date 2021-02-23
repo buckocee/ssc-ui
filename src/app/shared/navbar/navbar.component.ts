@@ -3,6 +3,7 @@ import {AuthService} from '../../auth/auth.service';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {LoginComponent} from '../../auth/login/login.component';
 import {Router} from '@angular/router';
+import {SignUpComponent} from '../../auth/sign-up/sign-up.component';
 
 @Component({
   selector: 'app-navbar',
@@ -43,5 +44,14 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  register() {
+    const dialogConfig = new MatDialogConfig();
+    const dialogRef = this.dialog.open(SignUpComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(value => {
+      this.username = value;
+      localStorage.setItem('username', value);
+    });
   }
 }
